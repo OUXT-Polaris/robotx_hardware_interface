@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="use_gazebo" default="false"/>
+    <arg name="use_hardware" default="false"/>
+    <arg name="output_rate" default="30.0"/>
+
+    <group if="$(arg use_gazebo)">
+        <node pkg="robotx_hardware_interface" type="gazebo_interface_node" name="robotx_hardware_interface_node" output="screen" respawn="false" respawn_delay="0">
+            <param name="output_rate" value="$(arg output_rate)"/>
+        </node>
+    </group>
+
+    <group if="$(arg use_hardware)">
+        <node pkg="robotx_hardware_interface" type="hardware_interface_node" name="robotx_hardware_interface_node" output="screen" respawn="false" respawn_delay="0">
+            <param name="output_rate" value="$(arg output_rate)"/>
+        </node>
+    </group>
+</launch>
