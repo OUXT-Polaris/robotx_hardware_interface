@@ -9,6 +9,9 @@
 #include <boost/optional.hpp>
 #include <boost/thread.hpp>
 
+// Headers in STL
+#include <mutex>
+
 class InterfaceBase
 {
 public:
@@ -24,6 +27,8 @@ private:
     boost::optional<usv_control_msgs::AzimuthThrusterCatamaranDriveStamped> cmd_;
     void sendCommand();
     double output_rate_;
+    ros::Subscriber cmd_sub_;
+    std::mutex mtx_;
 };
 
 #endif  //ROBOTX_HARDWARE_INTERFACE_INTERFACE_BASE_H_INCLUDED

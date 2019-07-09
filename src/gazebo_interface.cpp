@@ -8,6 +8,11 @@ GazeboInterface::GazeboInterface(ros::NodeHandle nh,ros::NodeHandle pnh) : Inter
     right_thrust_angle_pub_ = nh_.advertise<std_msgs::Float32>("right_thrust_angle",1);
 }
 
+GazeboInterface::~GazeboInterface()
+{
+
+}
+
 void GazeboInterface::sendCommandToTheTarget(usv_control_msgs::AzimuthThrusterCatamaranDriveStamped msg)
 {
     std_msgs::Float32 pub_msg;

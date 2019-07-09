@@ -9,6 +9,7 @@
 
 class GazeboInterface : public InterfaceBase
 {
+public:
     GazeboInterface(ros::NodeHandle nh,ros::NodeHandle pnh);
     ~GazeboInterface();
 private:
