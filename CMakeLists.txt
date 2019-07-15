@@ -24,9 +24,11 @@ include_directories(
 
 add_executable(gazebo_interface_node src/interface_base.cpp src/gazebo_interface_node.cpp src/gazebo_interface.cpp)
 target_link_libraries(gazebo_interface_node ${catkin_LIBRARIES})
+add_dependencies(gazebo_interface_node usv_control_msgs_generate_messages_cpp)
 
 add_executable(hardware_interface_node src/interface_base.cpp src/hardware_interface_node.cpp src/hardware_interface.cpp)
 target_link_libraries(hardware_interface_node ${catkin_LIBRARIES})
+add_dependencies(hardware_interface_node usv_control_msgs_generate_messages_cpp)
 
 # install executables/libs
 install(TARGETS gazebo_interface_node hardware_interface_node
