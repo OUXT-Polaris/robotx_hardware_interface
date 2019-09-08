@@ -8,18 +8,23 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   usv_control_msgs
+  visualization_msgs
+  quaternion_operation
 )
+
+find_package(Eigen3 REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES robotx_hardware_interface
-  CATKIN_DEPENDS roscpp std_msgs usv_control_msgs
+  CATKIN_DEPENDS roscpp std_msgs usv_control_msgs visualization_msgs
 #  DEPENDS system_lib
 )
 
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIR}
 )
 
 add_executable(gazebo_interface_node src/interface_base.cpp src/gazebo_interface_node.cpp src/gazebo_interface.cpp)
