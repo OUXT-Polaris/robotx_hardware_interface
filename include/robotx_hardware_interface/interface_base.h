@@ -26,7 +26,7 @@ protected:
     ros::NodeHandle pnh_;
 private:
     virtual void sendCommandToTheTarget(usv_control_msgs::AzimuthThrusterCatamaranDriveStamped msg) = 0;
-    void currentCommandCallback(const usv_control_msgs::AzimuthThrusterCatamaranDriveStamped::ConstPtr msg);
+    void motorCommandCallback(const usv_control_msgs::AzimuthThrusterCatamaranDriveStamped::ConstPtr msg);
     boost::optional<usv_control_msgs::AzimuthThrusterCatamaranDriveStamped> cmd_;
     void sendCommand();
     double output_rate_;

@@ -7,7 +7,7 @@ InterfaceBase::InterfaceBase(ros::NodeHandle nh,ros::NodeHandle pnh)
     pnh_.param<std::string>("robot_frame", robot_frame_, "base_link");
     pnh_.param<double>("output_rate", output_rate_, 30);
     marker_pub_ = pnh_.advertise<visualization_msgs::MarkerArray>("marker",1);
-    cmd_sub_ = nh_.subscribe("/current_command",1,&InterfaceBase::currentCommandCallback,this);
+    cmd_sub_ = nh_.subscribe("/motor_command",1,&InterfaceBase::motorCommandCallback,this);
 }
 
 InterfaceBase::~InterfaceBase()
@@ -15,7 +15,7 @@ InterfaceBase::~InterfaceBase()
 
 }
 
-void InterfaceBase::currentCommandCallback(const usv_control_msgs::AzimuthThrusterCatamaranDriveStamped::ConstPtr msg)
+void InterfaceBase::motorCommandCallback(const usv_control_msgs::AzimuthThrusterCatamaranDriveStamped::ConstPtr msg)
 {
     mtx_.lock();
     cmd_ = *msg;
