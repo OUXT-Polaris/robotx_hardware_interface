@@ -60,8 +60,8 @@ visualization_msgs::MarkerArray InterfaceBase::generateMarker()
             if(cmd_->command.left_thrust_cmd>0.0)
             {
                 left_thrust_marker.color.r = 0.3;
-                left_thrust_marker.color.g = 1.0;
-                left_thrust_marker.color.b = 0.3;
+                left_thrust_marker.color.g = 0.3;
+                left_thrust_marker.color.b = 1.0;
                 left_thrust_marker.color.a = 0.8;
             }
             else
@@ -94,8 +94,8 @@ visualization_msgs::MarkerArray InterfaceBase::generateMarker()
             if(cmd_->command.right_thrust_cmd>0.0)
             {
                 right_thrust_marker.color.r = 0.3;
-                right_thrust_marker.color.g = 1.0;
-                right_thrust_marker.color.b = 0.3;
+                right_thrust_marker.color.g = 0.3;
+                right_thrust_marker.color.b = 1.0;
                 right_thrust_marker.color.a = 0.8;
             }
             else
